@@ -2,18 +2,29 @@ package br.com.fiap.pokedex.model.entity;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+
 public class Pokemon {
 	private Long numero;
+	@NotBlank
 	private String nome;
+	@NotNull
 	private Double altura;
+	@NotNull
 	private Double peso;
+	@NotBlank
 	private String categoria;
+	@PastOrPresent
 	private LocalDate dataDaCaptura;
 	//construtores sem passagem de parâmetro
 	public Pokemon() {		
 	}
+	
 	//construtores com passagem de parâmetro
-	public Pokemon(Long numero, String nome, Double altura, Double peso, String categoria, LocalDate dataDaCaptura) {
+	public Pokemon(Long numero, @NotBlank String nome, @NotNull Double altura, @NotNull Double peso,
+			@NotBlank String categoria, @PastOrPresent LocalDate dataDaCaptura) {
 		this.numero = numero;
 		this.nome = nome;
 		this.altura = altura;
@@ -21,6 +32,7 @@ public class Pokemon {
 		this.categoria = categoria;
 		this.dataDaCaptura = dataDaCaptura;
 	}
+
 	//gets e sets
 	public Long getNumero() {
 		return numero;

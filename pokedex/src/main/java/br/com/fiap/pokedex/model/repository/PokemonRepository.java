@@ -1,5 +1,6 @@
 package br.com.fiap.pokedex.model.repository;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,6 +45,32 @@ public class PokemonRepository extends Repository{
 			closeConnnection();
 		}		
 		return pokemons;
+	}
+	
+	/*Este método deve preencher um novo registro na tabela e retorna o objeto da classe Remedio cadastrado*/
+	public static Pokemon save(Pokemon pokemon) {
+		String sql = "insert into pokemon"
+				+"(numero, nome, altura, peso, categoria, dataDaCaptura)"
+				+"values(null,?,?,?,?,?)";
+		try {
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, pokemon.getNome());
+			ps.setDouble(2, pokemon.getAltura());
+			ps.setDouble(3, pokemon.getPeso());
+			ps.setString(4, pokemon.getCategoria());
+			ps.setDate(5, Date.valueOf(pokemon.getDataDaCaptura()));
+			if (ps.executeUpdate() > 0) {
+				return pokemon;
+			} else {
+				return null;
+			}
 
+
+		} catch (SQLException e) {
+			System.out.println("Erro ao salvar: "+e.getMessage());
+		}finally {
+			closeConnnection();
+		}
+		return null;
 	}
 }

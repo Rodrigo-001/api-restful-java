@@ -2,22 +2,35 @@ package br.com.fiap.megafarma.model.entity;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+
 public class Remedio {
 	private Long id;
+	@NotBlank
 	private String nome;
+	@NotNull
 	private Double preco;
+	@PastOrPresent
 	private LocalDate dataDeFabricacao;
+	@FutureOrPresent
 	private LocalDate dataDeValidade;
 	
 	public Remedio() {}
+	
+	
 
-	public Remedio(Long id, String nome, Double preco, LocalDate dataDeFabricacao, LocalDate dataDeValidade) {
+public Remedio(Long id, @NotBlank String nome, @NotNull Double preco, @PastOrPresent LocalDate dataDeFabricacao,
+			@FutureOrPresent LocalDate dataDeValidade) {
 		this.id = id;
 		this.nome = nome;
 		this.preco = preco;
 		this.dataDeFabricacao = dataDeFabricacao;
 		this.dataDeValidade = dataDeValidade;
 	}
+
 
 	public Long getId() {
 		return id;

@@ -47,7 +47,7 @@ public class RemedioRepository extends Repository{
 	}
 	/*Este método deve preencher um novo registro na tabela e retorna o objeto da classe Remedio cadastrado*/
 	public static Remedio save(Remedio remedio) {
-		String sql = "insert insto tb_remedios"
+		String sql = "insert into tb_remedios"
 				+"(id, nome, preco, data_de_fabricacao, data_de_validade)"
 				+"values(null,?,?,?,?)";
 		try {

@@ -41,6 +41,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.6</version>
 		</dependency>
+		<!--Validação de datas antes de registrar-->
+		<dependency>
+			<groupId>org.glassfish.jersey.ext</groupId>
+			<artifactId>jersey-bean-validation</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
