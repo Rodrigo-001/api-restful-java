@@ -1,0 +1,22 @@
+1 Projeto maeven pokedex
+
+2 Criar pacote controller e mover MyResource para lá
+2.1 Em Main indicar no objeto rc que os recursos serão buscados em controller
+
+3 no Json, descomentar a dependencia
+
+4 Implementar a classe (Pokemon) que representa a entidade(tabela) em model>entity
+
+5 Implementar a classe(PokemonRepository) que realiza persistencia em BD em model>repository
+
+6 Implementar a classe(PokemonResource) em controller, para responder requisições http
+
+
+
+MVC
+
+M - Entity(Classe dos atributos), Repository(Classe que seta valores dos atributos)
+
+V - Main
+
+C - Resource(Classe que faz requisição GET)
